@@ -1,19 +1,23 @@
 const express = require('express');
 const chalk = require('chalk');
 const debug = require('debug')('app');
-const morgan = require('morgan');
+const morgan = require('morgan')
 
-const app = express()
-const port=3000;
+const app = express();
+const port = 3000;
 
-app.use(morgan('combined'))
+app.use(morgan('combined'));
 
-app.get("/",(req,res)=>{
+//จัดการรีเควสที่เข้ามาที่เข้ามาใน ถ้าเข้ามาในพาร์ทของ / แล้วจะตอบสนองรีเควสเรสป้อนอย่างไร แล้วให้ใส่คำสั่งลงไปใน{}
+app.get("/",(req,res) =>{
 
-    res.send("Hello BorntoDev!!")
+    res.send('Hello BorntoDev');
 })
 
-app.listen(port,()=>{
 
-    debug("Listening on port" , (port));
+//ให้รอฟังที่port และสิ่งที่เขาจะทำใส่ลงไปในปีกกาเหมือนเดิม
+app.listen(port,()=> {
+
+    debug('Listening on port : '+ chalk.green(port));
+
 })
